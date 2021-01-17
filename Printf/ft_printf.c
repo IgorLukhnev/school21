@@ -6,7 +6,7 @@
 /*   By: loberyn <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 17:02:28 by loberyn           #+#    #+#             */
-/*   Updated: 2021/01/09 18:20:25 by loberyn          ###   ########.fr       */
+/*   Updated: 2021/01/17 14:48:48 by loberyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,23 @@ t_flags	ft_init_flags(void)
 	flags.type = 0;
 	flags.width = 0;
 	flags.zero = 0;
+	flags.hash = 0;
+	flags.plus = 0;
+	flags.space = 0;
+	return (flags);
+}
+
+t_flags	*ft_bonus_flags(const char *str, int i, t_flags *flags)
+{
+	if (str[i] == '#')
+		flags->hash = 1;
+	if (str[i] == ' ')
+		flags->space = 1;
+	if (str[i] == '+')
+	{
+		flags->space = 0;
+		flags->plus = 1;
+	}
 	return (flags);
 }
 
@@ -40,6 +57,7 @@ int		ft_flag_parse(const char *str, int i, t_flags *flags, va_list args)
 			*flags = ft_flag_minus(*flags);
 		if (str[i] == '*')
 			*flags = ft_flag_width(args, *flags);
+		flags = ft_bonus_flags(str, i, flags);
 		if (ft_isdigit(str[i]))
 			*flags = ft_flag_digit(str[i], *flags);
 		if (ft_is_type(str[i]))

@@ -6,7 +6,7 @@
 /*   By: loberyn <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 17:45:55 by loberyn           #+#    #+#             */
-/*   Updated: 2021/01/09 18:23:07 by loberyn          ###   ########.fr       */
+/*   Updated: 2021/01/17 12:30:29 by loberyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ t_flags	ft_flag_width(va_list args, t_flags flags)
 	{
 		flags.minus = 1;
 		flags.width *= -1;
+		flags.zero = 0;
 	}
 	return (flags);
 }

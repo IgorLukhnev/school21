@@ -6,7 +6,7 @@
 /*   By: loberyn <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 17:16:57 by loberyn           #+#    #+#             */
-/*   Updated: 2021/01/09 18:15:56 by loberyn          ###   ########.fr       */
+/*   Updated: 2021/01/17 12:11:44 by loberyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int				ft_resolve_str(char *str, t_flags flags)
 	if (flags.dot >= 0)
 		len += ft_resolve_width(flags.width, flags.dot, 0);
 	else
-		len += ft_resolve_width(flags.width, ft_strlen(str), 0);
+		len += ft_resolve_width(flags.width, ft_strlen(str), flags.zero);
 	if (flags.minus == 0)
 		len += ft_put_str(str, flags);
 	return (len);

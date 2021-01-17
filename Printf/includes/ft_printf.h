@@ -6,7 +6,7 @@
 /*   By: loberyn <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 15:04:22 by loberyn           #+#    #+#             */
-/*   Updated: 2021/01/09 18:22:57 by loberyn          ###   ########.fr       */
+/*   Updated: 2021/01/17 14:41:59 by loberyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ typedef struct	s_flags
 	int			zero;
 	int			dot;
 	int			star;
+	int			hash;
+	int			plus;
+	int			space;
 }				t_flags;
 
 int				ft_printf(const char *str, ...);
@@ -51,7 +54,7 @@ char			*ft_strtolower(char *str);
 t_flags			ft_flag_minus(t_flags flags);
 t_flags			ft_flag_width(va_list args, t_flags flags);
 t_flags			ft_flag_digit(char c, t_flags flags);
-int			ft_dot_flag(const char *input, int start,
+int				ft_dot_flag(const char *input, int start,
 		t_flags *flags, va_list args);
 
 #endif

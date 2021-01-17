@@ -6,7 +6,7 @@
 /*   By: loberyn <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 17:04:35 by loberyn           #+#    #+#             */
-/*   Updated: 2021/01/09 18:15:27 by loberyn          ###   ########.fr       */
+/*   Updated: 2021/01/17 12:24:07 by loberyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int			ft_resolve_ptr(unsigned long long ull, t_flags flags)
 	len = 0;
 	if (ull == 0 && flags.dot == 0)
 	{
-		len += ft_putnstr("0x", 2);
-		return (len += ft_resolve_width(flags.width, 0, 1));
+		len += ft_resolve_width(flags.width, ft_strlen("0x"), flags.zero);
+		return (len += ft_putnstr("0x", 2));
 	}
 	ptr = ft_ull_base(ull, 16);
 	ptr = ft_strtolower(ptr);

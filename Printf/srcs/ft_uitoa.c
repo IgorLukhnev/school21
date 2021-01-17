@@ -55,7 +55,7 @@ static char	*ft_gen(char *rtn, long nbr, int len, int isneg)
 	return (rtn);
 }
 
-char		*ft_u_itoa(unsigned int n)
+char		*ft_uitoa(unsigned int n)
 {
 	int		len;
 	char	*rtn;
