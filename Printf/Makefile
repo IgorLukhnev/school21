@@ -6,7 +6,7 @@
 #    By: loberyn <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/09 17:40:08 by loberyn           #+#    #+#              #
-#    Updated: 2021/01/17 12:48:09 by loberyn          ###   ########.fr        #
+#    Updated: 2021/01/26 22:11:26 by loberyn          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,5 +72,7 @@ norms :
 
 norm : norms
 	norminette *.[ch]
+
+bonus : all
 
 .PHONY: all, clean, fclean, re

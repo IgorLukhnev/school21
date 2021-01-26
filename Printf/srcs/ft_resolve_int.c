@@ -6,7 +6,7 @@
 /*   By: loberyn <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:45:37 by loberyn           #+#    #+#             */
-/*   Updated: 2021/01/17 16:21:49 by loberyn          ###   ########.fr       */
+/*   Updated: 2021/01/26 22:03:52 by loberyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	ft_put_part_int(char *n, int i, t_flags flags)
 	int offset;
 
 	len = 0;
-	if (i < 0 && flags.dot >= 0)
+	if (i < 0 && flags.dot >= 0 && i != -2147483648)
 		ft_putchar('-');
 	if (flags.zero == 0)
 		len += ft_resolve_sign(i, flags);
@@ -91,9 +91,9 @@ int			ft_resolve_int(int i, t_flags flags)
 	{
 		return (len += ft_resolve_sign(i, flags));
 	}
-	if (i < 0 && (flags.dot >= 0 || flags.zero == 1))
+	if (i < 0 && (flags.dot >= 0 || flags.zero == 1) && i != -2147483648)
 	{
-		if (flags.zero == 1 && flags.dot == -1)
+		if (flags.zero == 1 && flags.dot < 0)
 			ft_putnstr("-", 1);
 		i *= -1;
 		flags.zero = 1;
